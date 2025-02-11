@@ -54,13 +54,10 @@ class LocationController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Location $location): \Illuminate\Http\JsonResponse
+    public function destroy(Location $location): LocationResource
     {
         $this->locationService->destroy($location);
 
-        return response()->json([
-            'success' => true,
-            'message' => 'Location deleted successfully.',
-        ], 200);
+        return LocationResource::make($location);
     }
 }
