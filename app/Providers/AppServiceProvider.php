@@ -6,6 +6,7 @@ use App\Repositories\LocationRepository;
 use App\Repositories\LocationRepositoryImpl;
 use App\Services\LocationService;
 use App\Services\LocationServiceImpl;
+use App\Services\RouteCalculateService;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -30,6 +31,7 @@ class AppServiceProvider extends ServiceProvider
     private function serviceBinds(): void
     {
         $this->app->bind(LocationServiceImpl::class, LocationService::class);
+        $this->app->bind(RouteCalculateService::class, RouteCalculateService::class);
     }
 
     private function repositoryBinds(): void
